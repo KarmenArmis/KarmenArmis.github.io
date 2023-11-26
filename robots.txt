@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://karmenarmis.github.io/sitemap.xml
