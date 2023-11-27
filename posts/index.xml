@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Posts on 我自己的博物馆</title>
-    <link>https://karmenarmis.github.io/post/</link>
+    <link>https://karmenarmis.github.io/posts/</link>
     <description>Recent content in Posts on 我自己的博物馆</description>
     <image>
       <title>我自己的博物馆</title>
@@ -11,16 +11,17 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 26 Nov 2023 16:56:52 +0800</lastBuildDate><atom:link href="https://karmenarmis.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 26 Nov 2023 16:56:52 +0800</lastBuildDate><atom:link href="https://karmenarmis.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>⚠Announcement</title>
-      <link>https://karmenarmis.github.io/post/caution_under-construction/</link>
+      <link>https://karmenarmis.github.io/posts/caution_under-construction/</link>
       <pubDate>Sun, 26 Nov 2023 16:56:52 +0800</pubDate>
       
-      <guid>https://karmenarmis.github.io/post/caution_under-construction/</guid>
-      <description>//This website is now under construction. //本網站現正建設中。 //这个网站正在施工中。 （好！施工队选择开摆！）
+      <guid>https://karmenarmis.github.io/posts/caution_under-construction/</guid>
+      <description>訓詞 This is a WARNING admonition test. //This website is now under construction. //本網站現正建設中。 //这个网站正在施工中。 （好！施工队选择开摆！）
 更新驻记：
-Nov 27, 2023: 更新了全局字体，增加了Email链接 Nov 26, 2023: Init config. 增加了“开往”</description>
+Nov 27, 2023: 更新了全局字体，增加了Email链接，增加了admonition功能，增加了encrypt功能
+Nov 26, 2023: Init config. 增加了“开往”链接</description>
     </item>
     
   </channel>
