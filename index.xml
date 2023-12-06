@@ -11,17 +11,56 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 26 Nov 2023 16:56:52 +0800</lastBuildDate><atom:link href="https://karmenarmis.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 28 Nov 2023 20:48:00 +0800</lastBuildDate><atom:link href="https://karmenarmis.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>⚠Announcement</title>
-      <link>https://karmenarmis.github.io/posts/caution_under-construction/</link>
+      <title>How_To_Build_a_BLOG! </title>
+      <link>https://karmenarmis.github.io/posts/how_to_build_a_blog/</link>
+      <pubDate>Tue, 28 Nov 2023 20:48:00 +0800</pubDate>
+      
+      <guid>https://karmenarmis.github.io/posts/how_to_build_a_blog/</guid>
+      <description>建立一个自己的博客！ 概述 本站是基于Hugo框架&amp;amp;Papermod主题构建的个人博客。从想法浮现到构建完成不过两天有余 真的不是两周？ 总之建一个这样的小站并不麻烦，但中途可能会碰到点小麻烦还是挺恼人的。脑力不胜优秀，遂记。
+实现的功能： 由于GitHub只能爆米才能使用私有仓库的GitHub Page功能，作者没米，故本指南使用在私有仓库存储博客内容、框架，再由GitHub Actions编译、推送到公有仓库并发布在GitHub Page上。（好处是博客内容不会被开盒）
+Papermod原生功能少的可怜，且wiki实在是不够详细，在关键部分加强了说明。
+移植了loveIt的admonition功能。
+加入了博文加密功能。
+准备工作 GitHub账号，过程甚简，略。 Git工具 GitHub Desktop 开始吧！ 0x01 分别创建GitHub私有、公有仓库 在GitHub上点击你的小头像，选择Your repositories，点击右上角的New。如图
+分别创立两个仓库
+私有仓库：repository name可随便填写
+共有仓库：repository name必须填写: &amp;lt;your Github name&amp;gt;.github.io
+其余内容可以都填None
+0x02 检查GitHub Pages状态 在你的公有仓库-setting-pages中，看到如下页面
+说明GitHub已为你创建好一个主页，可以随便丢个markdown file上去（在仓库的code-add file上传）看看效果，如图。为演示随便建的垃圾账号
+0x03 克隆仓库 回到你的私有仓库，接下来我们将要把此仓库克隆到本地——这步的目的是为了方便日后你可以直接在本地写完博文，通过GitHub Desktop直接update到仓库，而不用每次都上网页add file。同时，这也可以帮助你更好的管理仓库文件。
+这一步，你需要下载	GitHub Desktop	和	Git
+请选择amdx64版本，Mac用户请选择arm版本。安装过程略，Git的安装可以查看网络教程其实一路next就好
+接着，安装
+框架，在assets点击show all assests，选择最新的windwos-amd64.zip。解压后，在用户环境变量中添加Hugo
+在系统属性-环境变量-用户变量中，编辑Path变量
+新增一条路径：X:\&amp;lt;你的文件夹&amp;gt;\hugo_extended_0.120.4_windows-amd64\。请注意，这路径并不包含hugo.exe，只需要到包含hugo.exe的文件夹。
+记得保存！
+在Windows Powershell(管理员)中输入hugo version，有如下反馈算是成功。
+0x04配置Hugo框架 登录GitHub Desktop，一路next。
+选择“Clone a repository from the Internet&amp;hellip;”，将你的私有仓库克隆到本地。
+在这个本地仓库打开powershell（shift+右键）</description>
+    </item>
+    
+    <item>
+      <title>更新驻记&amp;测试页</title>
+      <link>https://karmenarmis.github.io/posts/%E6%9B%B4%E6%96%B0%E9%A9%BB%E8%AE%B0%E6%B5%8B%E8%AF%95%E9%A1%B5/</link>
       <pubDate>Sun, 26 Nov 2023 16:56:52 +0800</pubDate>
       
-      <guid>https://karmenarmis.github.io/posts/caution_under-construction/</guid>
+      <guid>https://karmenarmis.github.io/posts/%E6%9B%B4%E6%96%B0%E9%A9%BB%E8%AE%B0%E6%B5%8B%E8%AF%95%E9%A1%B5/</guid>
       <description>訓詞 This is a WARNING admonition test. //This website is now under construction. //本網站現正建設中。 //这个网站正在施工中。 （好！施工队选择开摆！）
-更新驻记：
+测试行内删除线 删除线？ 测试行内删除线
+shift+enter换行测试
+本地图片引用测试
+超链接测试
+Google
+todo-list
+整合memos笔记服务 更新驻记：
+Nov 28, 2023: 更新了Hugo基于Goldenmark的markdown渲染规则
 Nov 27, 2023: 更新了全局字体，增加了Email链接，增加了admonition功能，增加了encrypt功能
-Nov 26, 2023: Init config. 增加了“开往”链接</description>
+Nov 26, 2023: Init config，增加了“开往”链接</description>
     </item>
     
     <item>
