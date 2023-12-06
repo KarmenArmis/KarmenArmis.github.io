@@ -58,6 +58,7 @@ shift+enter换行测试
 Google
 todo-list
 整合memos笔记服务 更新驻记：
+Dec 12, 2023: 为博文新添了TOC(侧边导航栏,Table of Content)，之后会更新为侧边导航栏
 Nov 28, 2023: 更新了Hugo基于Goldenmark的markdown渲染规则
 Nov 27, 2023: 更新了全局字体，增加了Email链接，增加了admonition功能，增加了encrypt功能
 Nov 26, 2023: Init config，增加了“开往”链接</description>
