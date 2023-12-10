@@ -11,46 +11,302 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 08 Dec 2023 00:40:16 +0800</lastBuildDate><atom:link href="https://karmenarmis.github.io/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Encryption_test</title>
-      <link>https://karmenarmis.github.io/posts/encryption_test/</link>
-      <pubDate>Fri, 08 Dec 2023 00:40:16 +0800</pubDate>
-      
-      <guid>https://karmenarmis.github.io/posts/encryption_test/</guid>
-      <description>&lt;p&gt;测试用例的密码是：a1b2c3&lt;/p&gt;</description>
-    </item>
-    
+    <lastBuildDate>Tue, 28 Nov 2023 20:48:00 +0800</lastBuildDate><atom:link href="https://karmenarmis.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How_To_Build_a_BLOG! </title>
       <link>https://karmenarmis.github.io/posts/how_to_build_a_blog/</link>
       <pubDate>Tue, 28 Nov 2023 20:48:00 +0800</pubDate>
       
       <guid>https://karmenarmis.github.io/posts/how_to_build_a_blog/</guid>
-      <description>建立一个自己的博客！ 概述 本站是基于Hugo框架&amp;amp;Papermod主题构建的个人博客。从想法浮现到构建完成不过两天有余 真的不是两周？ 总之建一个这样的小站并不麻烦，但中途可能会碰到点小麻烦还是挺恼人的。脑力不胜优秀，遂记。
-实现的功能： 由于GitHub只能爆米才能使用私有仓库的GitHub Page功能，作者没米，故本指南使用在私有仓库存储博客内容、框架，再由GitHub Actions编译、推送到公有仓库并发布在GitHub Page上。（好处是博客内容不会被开盒）
-Papermod原生功能少的可怜，且wiki实在是不够详细，在关键部分加强了说明。
-移植了loveIt的admonition功能。
-加入了博文加密功能。
-准备工作 GitHub账号，过程甚简，略。 Git工具 GitHub Desktop 开始吧！ 0x01 分别创建GitHub私有、公有仓库 在GitHub上点击你的小头像，选择Your repositories，点击右上角的New。如图
-分别创立两个仓库
-私有仓库：repository name可随便填写
-共有仓库：repository name必须填写: &amp;lt;your Github name&amp;gt;.github.io
-其余内容可以都填None
-0x02 检查GitHub Pages状态 在你的公有仓库-setting-pages中，看到如下页面
-说明GitHub已为你创建好一个主页，可以随便丢个markdown file上去（在仓库的code-add file上传）看看效果，如图。为演示随便建的垃圾账号
-0x03 克隆仓库 回到你的私有仓库，接下来我们将要把此仓库克隆到本地——这步的目的是为了方便日后你可以直接在本地写完博文，通过GitHub Desktop直接update到仓库，而不用每次都上网页add file。同时，这也可以帮助你更好的管理仓库文件。
-这一步，你需要下载	GitHub Desktop	和	Git
-请选择amdx64版本，Mac用户请选择arm版本。安装过程略，Git的安装可以查看网络教程其实一路next就好
-接着，安装
-框架，在assets点击show all assests，选择最新的windwos-amd64.zip。解压后，在用户环境变量中添加Hugo
-在系统属性-环境变量-用户变量中，编辑Path变量
-新增一条路径：X:\&amp;lt;你的文件夹&amp;gt;\hugo_extended_0.120.4_windows-amd64\。请注意，这路径并不包含hugo.exe，只需要到包含hugo.exe的文件夹。
-记得保存！
-在Windows Powershell(管理员)中输入hugo version，有如下反馈算是成功。
-0x04配置Hugo框架 登录GitHub Desktop，一路next。
-选择“Clone a repository from the Internet&amp;hellip;”，将你的私有仓库克隆到本地。
-在这个本地仓库打开powershell（shift+右键）</description>
+      <description>&lt;h1 id=&#34;建立一个自己的博客&#34;&gt;建立一个自己的博客！&lt;/h1&gt;
+&lt;h2 id=&#34;概述&#34;&gt;概述&lt;/h2&gt;
+&lt;p&gt;本站是基于Hugo框架&amp;amp;Papermod主题构建的个人博客。从想法浮现到构建完成不过两天有余 &lt;del&gt;真的不是两周？&lt;/del&gt; 总之建一个这样的小站并不麻烦，但中途可能会碰到点小麻烦还是挺恼人的。脑力不胜优秀，遂记。&lt;/p&gt;
+&lt;h3 id=&#34;实现的功能&#34;&gt;实现的功能：&lt;/h3&gt;
+&lt;p&gt;由于GitHub只能爆米才能使用私有仓库的GitHub Page功能，作者没米，故本指南使用在私有仓库存储博客内容、框架，再由GitHub Actions编译、推送到公有仓库并发布在GitHub Page上。（好处是博客内容不会被开盒）&lt;/p&gt;
+&lt;p&gt;Papermod原生功能少的可怜，且wiki实在是不够详细，在关键部分加强了说明。&lt;/p&gt;
+&lt;p&gt;移植了loveIt的admonition功能。&lt;/p&gt;
+&lt;p&gt;加入了基于AES-GCM算法的博文加密模块。&lt;/p&gt;
+&lt;h2 id=&#34;准备工作&#34;&gt;准备工作&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;GitHub账号，过程甚简，略。&lt;/li&gt;
+&lt;li&gt;Git工具&lt;/li&gt;
+&lt;li&gt;GitHub Desktop&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;开始吧&#34;&gt;开始吧！&lt;/h2&gt;
+&lt;h3 id=&#34;0x01-分别创建github私有公有仓库&#34;&gt;0x01 分别创建GitHub私有、公有仓库&lt;/h3&gt;
+&lt;p&gt;在GitHub上点击你的小头像，选择Your repositories，点击右上角的New。如图&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://karmenarmis.github.io/img/image-20231127205939751.png&#34; alt=&#34;new repository&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;分别创立两个仓库&lt;/p&gt;
+&lt;p&gt;私有仓库：repository name可随便填写&lt;/p&gt;
+&lt;p&gt;共有仓库：repository name必须填写: &lt;code&gt;&amp;lt;your Github name&amp;gt;.github.io&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;其余内容可以都填None&lt;/p&gt;
+&lt;h3 id=&#34;0x02-检查github-pages状态&#34;&gt;0x02 检查GitHub Pages状态&lt;/h3&gt;
+&lt;p&gt;在你的公有仓库-setting-pages中，看到如下页面&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://karmenarmis.github.io/img/image-20231127211713930.png&#34; alt=&#34;pages&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;说明GitHub已为你创建好一个主页，可以随便丢个markdown file上去（在仓库的code-add file上传）看看效果，如图。&lt;del&gt;为演示随便建的垃圾账号&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://karmenarmis.github.io/img/image-20231127211929841.png&#34; alt=&#34;page test&#34;  /&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;0x03-克隆仓库&#34;&gt;0x03 克隆仓库&lt;/h3&gt;
+&lt;p&gt;回到你的私有仓库，接下来我们将要把此仓库克隆到本地——这步的目的是为了方便日后你可以直接在本地写完博文，通过GitHub Desktop直接update到仓库，而不用每次都上网页add file。同时，这也可以帮助你更好的管理仓库文件。&lt;/p&gt;
+&lt;p&gt;这一步，你需要下载	&lt;a href=&#34;https://desktop.github.com/&#34;&gt;GitHub Desktop&lt;/a&gt;	和	&lt;a href=&#34;https://git-scm.com/download/win&#34;&gt;Git&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;请选择amdx64版本，Mac用户请选择arm版本。安装过程略，Git的安装可以查看网络教程&lt;del&gt;其实一路next就好&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;接着，安装&lt;/p&gt;
+&lt;p&gt;框架，在assets点击show all assests，选择最新的windwos-amd64.zip。解压后，在用户环境变量中添加Hugo&lt;/p&gt;
+&lt;p&gt;在系统属性-环境变量-用户变量中，编辑Path变量&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://karmenarmis.github.io/img/image-20231127212842634.png&#34; alt=&#34;envierment var setting&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://karmenarmis.github.io/img/image-20231127213031876.png&#34; alt=&#34;path setting&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;新增一条路径：&lt;code&gt;X:\&amp;lt;你的文件夹&amp;gt;\hugo_extended_0.120.4_windows-amd64&lt;/code&gt;\。请注意，这路径并不包含hugo.exe，只需要到包含hugo.exe的文件夹。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;记得保存！&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在Windows Powershell(管理员)中输入hugo version，有如下反馈算是成功。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://karmenarmis.github.io/img/image-20231127213408244.png&#34; alt=&#34;hugo vers&#34;  /&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;0x04配置hugo框架&#34;&gt;0x04配置Hugo框架&lt;/h3&gt;
+&lt;p&gt;登录GitHub Desktop，一路next。&lt;/p&gt;
+&lt;p&gt;选择“Clone a repository from the Internet&amp;hellip;”，将你的私有仓库克隆到本地。&lt;br&gt;
+在这个本地仓库打开powershell（shift+右键）&lt;/p&gt;
+&lt;p&gt;执行&lt;code&gt;hugo new site &amp;lt;myWebSite&amp;gt; --force&lt;/code&gt;，&lt;!-- raw HTML omitted --&gt;可以替换成你的私有仓库名称，构建hugo框架，如下图&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://karmenarmis.github.io/img/image-20231127221525226.png&#34; alt=&#34;frame&#34;  /&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;0x05为博客添加一个主题&#34;&gt;0x05为博客添加一个主题&lt;/h3&gt;
+&lt;p&gt;比如我是用的Papermod主题&lt;br&gt;
+主页贴在这里：https://github.com/adityatelange/hugo-PaperMod&lt;br&gt;
+wiki在这里：https://github.com/adityatelange/hugo-PaperMod/wiki&lt;/p&gt;
+&lt;div class=&#34;details admonition info open&#34;&gt;
+        &lt;div class=&#34;details-summary admonition-title&#34;&gt;
+            &lt;i class=&#34;icon fas fa-info-circle fa-fw&#34;&gt;&lt;/i&gt;Info&lt;i class=&#34;details-icon fas fa-angle-right fa-fw&#34;&gt;&lt;/i&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;details-content&#34;&gt;
+            &lt;div class=&#34;admonition-content&#34;&gt;&lt;strong&gt;当你遇到问题时，应该首先查看wiki&lt;/strong&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;p&gt;参考wiki，使用git工具来管理。&lt;br&gt;
+在myWebSite文件夹右键打开git bash，使用&lt;code&gt;git submodule add --depth=1 https://github.com/adityatelange/hugo-PaperMod.git themes/PaperMod git submodule update --init --recursive # needed when you reclone your repo (submodules may not get cloned automatically)&lt;/code&gt;下载&lt;/p&gt;
+&lt;h3 id=&#34;0x06配置主题&#34;&gt;0x06配置主题&lt;/h3&gt;
+&lt;p&gt;首先，papermod使用yaml配置主题。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;We&amp;rsquo;ll be using yml/yaml format for all examples down below, I recommend using yml over toml as it is easier to read.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;由于hugo config支持多种配置文件格式&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Hugo uses the &lt;code&gt;hugo.toml&lt;/code&gt;, &lt;code&gt;hugo.yaml&lt;/code&gt;, or &lt;code&gt;hugo.json&lt;/code&gt; (if found in the site root) as the default site configuration file.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;可以先删除默认的hugo.toml，新建config.yaml，之后的配置都会在此更改。&lt;/p&gt;
+&lt;p&gt;首先复制一份papermod主题的sample config到config.yaml，之后的改正会以此为基础修修补补。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/adityatelange/hugo-PaperMod/wiki/Installation#sample-configyml&#34;&gt;https://github.com/adityatelange/hugo-PaperMod/wiki/Installation#sample-configyml&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;下面详细讲一下config.yaml中比较重要的内容（格式未经过严格排版，谨慎复制，yaml语法对制表符、空格要求严格）&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;ExampleSite	&amp;lt;博客的名字&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;paginate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;m&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;	&lt;/span&gt;&lt;span class=&#34;l&#34;&gt;&amp;lt;每个页面显示的博文数量&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;params&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;	&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;ExampleSite	&amp;lt;博客的标题&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;	&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;description&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;ExampleSite description&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;	&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;author&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;Me	&amp;lt;显示的作者名&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;	&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;showtoc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;	&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;tocopen&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;	&lt;/span&gt;&lt;span class=&#34;l&#34;&gt;&amp;lt;设置是否显示TOC栏&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;label&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;	&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;text&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Home&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;	&lt;/span&gt;&lt;span class=&#34;l&#34;&gt;&amp;lt;左上角&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;profileMode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;buttons:	&amp;lt;页面右上角按键的名称&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;- &lt;span class=&#34;nt&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;Posts&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;url&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;posts&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;- &lt;span class=&#34;nt&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;Tags&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;url&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;tags&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;homeInfoParams&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;	&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;Title&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Hi there \U0001F44B&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;	&lt;/span&gt;&lt;span class=&#34;l&#34;&gt;&amp;lt;主页面上的标题栏内容&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;	&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;Content&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;Welcome to my blog		&amp;lt;主页面上的简介栏内容&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;l&#34;&gt;socialIcons:	&amp;lt;name:papermod wiki-Icons中给出的图标名，与图标关联，不可更改.自定义图标请用“-”代替。title：显示的图标名。url：地址，包括在线图标和本地图标&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;	&lt;/span&gt;- &lt;span class=&#34;nt&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;twitter	&amp;lt;这是一个在线图标示例&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;	  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;推特&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;	  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;url&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;https://twitter.com/&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;- &lt;span class=&#34;nt&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;-&lt;span class=&#34;w&#34;&gt;	&lt;/span&gt;&lt;span class=&#34;l&#34;&gt;&amp;lt;这是一个本地图标示例&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;本地图标&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;url&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;/icons/&amp;lt;本地图标&amp;gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;	&lt;/span&gt;&lt;span class=&#34;l&#34;&gt;&amp;lt;本地图标保存在/static/icons文件夹下&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;- &lt;span class=&#34;nt&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;email	&amp;lt;这是一个邮件图标示例，此行不可更改&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;電郵&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;url&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;mailto:&amp;lt;你的电子邮箱地址&amp;gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;0x07新建博文&#34;&gt;0x07新建博文&lt;/h3&gt;
+&lt;p&gt;在&lt;!-- raw HTML omitted --&gt;文件夹执行&lt;code&gt;hugo new posts/hello.md&lt;/code&gt;，生成一篇hello.md文章，编辑内容。&lt;/p&gt;
+&lt;p&gt;使用&lt;code&gt;hugo server -D&lt;/code&gt;查看修改是否生效。用&lt;code&gt;ctrl+c&lt;/code&gt;结束调试。&lt;/p&gt;
+&lt;p&gt;将hello.md中第四行draft改为true，正式发布&lt;/p&gt;
+&lt;h3 id=&#34;0x08发布网站&#34;&gt;0x08发布网站&lt;/h3&gt;
+&lt;p&gt;登录 Github，点击个人头像，选择 Settings，进入个人设置页面。&lt;/p&gt;
+&lt;p&gt;选择Developer settings - Personal access tokens - Tokens(classic)&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://karmenarmis.github.io/img/image-20231129214806097.png&#34; alt=&#34;image-20231129214806097&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;选择Generate new token(classic)，勾选workflow。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://karmenarmis.github.io/img/image-20231129215139049.png&#34; alt=&#34;image-20231129215139049&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;生成令牌，&lt;strong&gt;妥善保存&lt;/strong&gt;ghp_开头的令牌内容&lt;/p&gt;
+&lt;h3 id=&#34;0x09-为私有仓库建立action-secrets&#34;&gt;0x09 为私有仓库建立Action secrets&lt;/h3&gt;
+&lt;p&gt;进入私有仓库，进入Settings - Secrets and variables - Actions页面&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://karmenarmis.github.io/img/image-20231129215715334.png&#34; alt=&#34;image-20231129215715334&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;点击New repository secret添加刚刚保存的token&lt;/p&gt;
+&lt;h3 id=&#34;0x0a-创建actions&#34;&gt;0x0A 创建Actions&lt;/h3&gt;
+&lt;p&gt;在本地 myWebSite 文件夹创建 &amp;lt;.github\workflows\main.yml&amp;gt; 文件，输入以下内容：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;GitHub Pages&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;on&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;push&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;branches&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;- &lt;span class=&#34;l&#34;&gt;main &lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;c&#34;&gt;# 博客根目录的默认分支，这里是main，有时也是master&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;pull_request&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;jobs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;deploy&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;runs-on&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;ubuntu-20.04&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;concurrency&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;group&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;${{ github.workflow }}-${{ github.ref }}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;steps&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;- &lt;span class=&#34;nt&#34;&gt;uses&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;actions/checkout@v2&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;with&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;          &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;submodules&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;          &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;fetch-depth&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;- &lt;span class=&#34;nt&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;Setup Hugo&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;uses&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;peaceiris/actions-hugo@v2&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;with&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;          &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;hugo-version&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;0.91.2&amp;#39;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;c&#34;&gt;# 填写你的hugo版本，可用hugo version查看&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;          &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;extended&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;          &lt;/span&gt;&lt;span class=&#34;c&#34;&gt;# 如果你使用的不是extended版本的hugo，将true改为false&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;- &lt;span class=&#34;nt&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;Build&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;run&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;hugo --minify&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;- &lt;span class=&#34;nt&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;Deploy&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;uses&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;peaceiris/actions-gh-pages@v3&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;${{ github.ref == &amp;#39;refs/heads/main&amp;#39; }} &lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;c&#34;&gt;# 注意填写main或者master&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;with&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;          &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;personal_token&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;${{ secrets.MY_PAT}}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;c&#34;&gt;# 如果secret取了其他名称，将MY_PAT替换掉&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;          &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;external_repository&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;simumis/simumis.github.io&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;c&#34;&gt;# 填写远程仓库，不一定是这个格式，按照自己的情况写 &lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;          &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;publish_dir&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;./public&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;          &lt;/span&gt;&lt;span class=&#34;c&#34;&gt;#cname: www.example.com        # 填写你的自定义域名。如果没有用自定义域名，注释掉这行&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;0x0b发布网站&#34;&gt;0x0B发布网站&lt;/h3&gt;
+&lt;p&gt;打开 Github Desktop 软件，点击 &lt;strong&gt;Commit to main&lt;/strong&gt; 按钮提交所有修改（需要填写更新总结），然后点击 &lt;strong&gt;Push origin&lt;/strong&gt; 按钮将修改内容推送到 Github 网站的 myWebSite 仓库，随后触发 Github Actions 自动执行编译、发布功能。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://karmenarmis.github.io/img/image-20231129220141501.png&#34; alt=&#34;image-20231129220141501&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;在github的&amp;lt;yourname.github.io&amp;gt;仓库打开Settings-Pages页面，将Branch改为gh-pages&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://karmenarmis.github.io/img/image-20231129220443361.png&#34; alt=&#34;image-20231129220443361&#34;  /&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;现在打开你自己的博客看看吧&#34;&gt;现在，打开你自己的博客看看吧！！&lt;/h2&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;h2 id=&#34;admonition功能仿loveit&#34;&gt;Admonition功能（仿LoveIt）&lt;/h2&gt;
+&lt;h3 id=&#34;概述-1&#34;&gt;概述&lt;/h3&gt;
+&lt;p&gt;Admonition是一种基于markdown格式，需要博客支持的提示框型文字。&lt;/p&gt;
+&lt;p&gt;PaeperMod主题并不自带Admonition功能，于是需要从LoveIt主题移植。&lt;/p&gt;
+&lt;p&gt;首先看了这篇文章&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://mc-lsk888-blog.vercel.app/post/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E7%A7%BB%E6%A4%8Dadmonition%E5%88%B0papermod/&#34;&gt;https://mc-lsk888-blog.vercel.app/post/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E7%A7%BB%E6%A4%8Dadmonition%E5%88%B0papermod/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;博文给出了admonition的移植方法，但我自己用文中方法和代码尝试并不成功。&lt;/p&gt;
+&lt;h3 id=&#34;实现过程&#34;&gt;实现过程&lt;/h3&gt;
+&lt;p&gt;主要使用了https://github.com/YazidLee/hugo-backup的repo。这个库已经将admonition功能移植好了，并附加了其他功能（本文并不介绍）&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;首先将该库clone下来。&lt;/li&gt;
+&lt;li&gt;在本地仓库新建&lt;code&gt;\assets\css\extended; \layouts\partials; \layouts\shortcodes&lt;/code&gt;三个文件夹，将&lt;!-- raw HTML omitted --&gt;库中以上三个文件夹中&lt;code&gt;admonition.css; details.css； fa-all.css；extend_footer.html; admonition.html&lt;/code&gt;分别复制到自己的本地库。&lt;/li&gt;
+&lt;li&gt;将&lt;!-- raw HTML omitted --&gt;库中&lt;code&gt;\static\font&lt;/code&gt;文件夹复制到本地库&lt;/li&gt;
+&lt;li&gt;修改&amp;lt;extend_footer.html&amp;gt;的内容，只保留&lt;code&gt;{{- /* admonition toggle */}}&lt;/code&gt;一段，删除其他内容。&lt;/li&gt;
+&lt;li&gt;使用&lt;code&gt;hugo server -D&lt;/code&gt;查看修改是否生效。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;admonition语法见此：https://hdsbook.github.io/0-loveit-admonition-note/&lt;/p&gt;
+&lt;div class=&#34;details admonition info open&#34;&gt;
+        &lt;div class=&#34;details-summary admonition-title&#34;&gt;
+            &lt;i class=&#34;icon fas fa-info-circle fa-fw&#34;&gt;&lt;/i&gt;Info&lt;i class=&#34;details-icon fas fa-angle-right fa-fw&#34;&gt;&lt;/i&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;details-content&#34;&gt;
+            &lt;div class=&#34;admonition-content&#34;&gt;注意：使用admonition是不要在命令前留有空格&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;h2 id=&#34;设置全局字体&#34;&gt;设置全局字体&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;将.otf/.ttf字体放入&lt;code&gt;/static/fonts&lt;/code&gt;文件夹中&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;新建&lt;code&gt;/assets/css/extended/fonts.css&lt;/code&gt;字体描述文件&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;编辑该文件：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-css&#34; data-lang=&#34;css&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;font-face&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;						&lt;span class=&#34;c&#34;&gt;/*引用字体*/&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nt&#34;&gt;font-family&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;字体名&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nt&#34;&gt;src&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;url&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;/fonts/本地字体.otf&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;body&lt;/span&gt;							&lt;span class=&#34;c&#34;&gt;/*设置全局字体*/&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;font-family&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;字体名&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;同时，也可以分别设置正文字体&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-css&#34; data-lang=&#34;css&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;post-content&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;						&lt;span class=&#34;c&#34;&gt;/*对应的class名称或id名称*/&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;font-family&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;中文字体&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;西文字体&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;使用&lt;code&gt;hugo server -D&lt;/code&gt;查看修改是否生效。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;如何在博文中引用图片&#34;&gt;如何在博文中引用图片&lt;/h2&gt;
+&lt;p&gt;两种选择&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;在线图床：将图片上传到图床，生成绝对链接，再粘贴到markdown file中，但是要钱 &lt;del&gt;烂了（&lt;/del&gt;&lt;/li&gt;
+&lt;li&gt;本地引用：将图片给放在&lt;code&gt;\static\img&lt;/code&gt;文件夹中，我们将着重讲述这个办法。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;将图片放入&lt;code&gt;\static\img&lt;/code&gt;文件夹。&lt;br&gt;
+再markdown file中严格按照&lt;code&gt;![title（可省略）](/img/&amp;lt;your file&amp;gt;)&lt;/code&gt;的格式引用&lt;/p&gt;
+&lt;p&gt;使用&lt;code&gt;hugo server -D&lt;/code&gt;查看修改是否生效。&lt;/p&gt;
+&lt;h2 id=&#34;在hugo框架的博客中渲染附加的markdown语法&#34;&gt;在Hugo框架的博客中渲染附加的Markdown语法&lt;/h2&gt;
+&lt;p&gt;你可能会发现，使用shift+enter的换行在博文里并不能被正确渲染为换行符。再比如，行内删除线有时也不能被正确渲染。这是因为Hugo框架只配置了最基础的Markdown语法。为此，我们需要添加附加扩展&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.gohugo.org/doc/overview/configuration/&#34;&gt;https://www.gohugo.org/doc/overview/configuration/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;旧版的Hugo框架使用了Blackfriday作为渲染引擎，如上所述，在此不详述。&lt;del&gt;之前以为是blackfriday配置了半天都不成功气死我辣&lt;/del&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://gohugo.io/getting-started/configuration-markup/&#34;&gt;https://gohugo.io/getting-started/configuration-markup/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;新版的Hugo框架使用了Goldmark作为渲染引擎，如上所述。直接将Goldmark yaml复制到本地库的config.yaml，并将hardWraps改为true&lt;/p&gt;
+&lt;p&gt;extensions每项的具体作用可以在此查看https://github.com/yuin/goldmark&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;details admonition warning open&#34;&gt;
+        &lt;div class=&#34;details-summary admonition-title&#34;&gt;
+            &lt;i class=&#34;icon fas fa-exclamation-triangle fa-fw&#34;&gt;&lt;/i&gt;血泪教训&lt;i class=&#34;details-icon fas fa-angle-right fa-fw&#34;&gt;&lt;/i&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;details-content&#34;&gt;
+            &lt;div class=&#34;admonition-content&#34;&gt;类似测试 &lt;del&gt;删除线？&lt;/del&gt; 这样末尾带有符号的删除线，记得在外部留一个空格，否则无法渲染&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;&lt;div class=&#34;details admonition tips open&#34;&gt;
+        &lt;div class=&#34;details-summary admonition-title&#34;&gt;
+            &lt;i class=&#34;icon fas fa-pencil-alt fa-fw&#34;&gt;&lt;/i&gt;多个空格&lt;i class=&#34;details-icon fas fa-angle-right fa-fw&#34;&gt;&lt;/i&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;details-content&#34;&gt;
+            &lt;div class=&#34;admonition-content&#34;&gt;根据Markdown的语法规则，多个空格将会被忽略，你可以用&lt;code&gt;&amp;amp;nbsp;&lt;/code&gt;来表示空格&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;&lt;/p&gt;
+&lt;h2 id=&#34;基于aes-gcm算法的博文加密模块&#34;&gt;基于AES-GCM算法的博文加密模块&lt;/h2&gt;
+&lt;p&gt;本功能基于&lt;a href=&#34;https://github.com/hotjuicew/hugoArticleEncryptor&#34;&gt;hugoArticleEncryptor&lt;/a&gt;实现。演示示例请在&lt;code&gt;测试页&lt;/code&gt;寻找&lt;/p&gt;
+&lt;p&gt;hugoArticleEncryptor是&lt;em&gt;Hugo Encryptor&lt;/em&gt;的 go 版本。&lt;em&gt;Hugo Encryptor&lt;/em&gt;基于python编写，但其依赖项安装比较复杂，故采用hugoArticleEncryptor。&lt;/p&gt;
+&lt;p&gt;hugoArticleEncryptor的参考文档在此，这里做简要说明：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/hotjuicew/hugoArticleEncryptor/blob/master/README-zh_CN.md&#34;&gt;https://github.com/hotjuicew/hugoArticleEncryptor/blob/master/README-zh_CN.md&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;首先需要明确的是，加密模块的效果无法再本地查看，使用&lt;code&gt;hugo server&lt;/code&gt;命令不一定能完全还原网页效果。所以请上传到仓库编译后在博客网页查看。&lt;/p&gt;
+&lt;h3 id=&#34;步骤&#34;&gt;步骤&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;下载发行版hugoArticleEncryptor-windows-amd64.exe到本地仓库。如果你运行它，会发现它会自动生成一个在.\static\js文件夹下的AESDecrypt.js文件和在.\layouts\shortcodes文件夹下的secret.html短代码文件。这两个文件就是实现博文加密的全部了。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在任一博文需要加密的地方用&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;</description>
     </item>
     
     <item>
@@ -59,18 +315,33 @@ Papermod原生功能少的可怜，且wiki实在是不够详细，在关键部�
       <pubDate>Sun, 26 Nov 2023 16:56:52 +0800</pubDate>
       
       <guid>https://karmenarmis.github.io/posts/%E6%9B%B4%E6%96%B0%E9%A9%BB%E8%AE%B0%E6%B5%8B%E8%AF%95%E9%A1%B5/</guid>
-      <description>訓詞 This is a WARNING admonition test. //This website is now under construction. //本網站現正建設中。 //这个网站正在施工中。 （好！施工队选择开摆！）
-测试行内删除线 删除线？ 测试行内删除线
-shift+enter换行测试
-本地图片引用测试
-超链接测试
-Google
-todo-list
-整合memos笔记服务 更新驻记：
-Dec 12, 2023: 为博文新添了TOC(侧边导航栏,Table of Content)，之后会更新为侧边导航栏
-Nov 28, 2023: 更新了Hugo基于Goldenmark的markdown渲染规则
-Nov 27, 2023: 更新了全局字体，增加了Email链接，增加了admonition功能，增加了encrypt功能
-Nov 26, 2023: Init config，增加了“开往”链接</description>
+      <description>&lt;div class=&#34;details admonition warning open&#34;&gt;
+        &lt;div class=&#34;details-summary admonition-title&#34;&gt;
+            &lt;i class=&#34;icon fas fa-exclamation-triangle fa-fw&#34;&gt;&lt;/i&gt;訓詞&lt;i class=&#34;details-icon fas fa-angle-right fa-fw&#34;&gt;&lt;/i&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;details-content&#34;&gt;
+            &lt;div class=&#34;admonition-content&#34;&gt;This is a WARNING admonition test.&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;h2 id=&#34;this-website-is-now-under-construction&#34;&gt;//This website is now under construction.&lt;/h2&gt;
+&lt;h2 id=&#34;本網站現正建設中&#34;&gt;//本網站現正建設中。&lt;/h2&gt;
+&lt;h2 id=&#34;这个网站正在施工中&#34;&gt;//这个网站正在施工中。&lt;/h2&gt;
+&lt;p&gt;&lt;del&gt;（好！施工队选择开摆！）&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;测试行内删除线 &lt;del&gt;删除线？&lt;/del&gt; 测试行内删除线&lt;br&gt;
+shift+enter换行测试&lt;/p&gt;
+&lt;p&gt;本地图片引用测试&lt;br&gt;
+&lt;img loading=&#34;lazy&#34; src=&#34;https://karmenarmis.github.io/img/photo_2023-11-29_00-23-41.jpg&#34; alt=&#34;&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;超链接测试&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.google.com&#34;&gt;Google&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;todo-list&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 整合&lt;a href=&#34;https://www.usememos.com/&#34;&gt;memos&lt;/a&gt;笔记服务&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;Encryption_test&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;测试用例的密码是：a1b2c3&lt;/p&gt;</description>
     </item>
     
     <item>
