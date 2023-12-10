@@ -22,63 +22,7 @@ Papermod原生功能少的可怜，且wiki实在是不够详细，在关键部�
 在Windows Powershell(管理员)中输入hugo version，有如下反馈算是成功。
 0x04配置Hugo框架 登录GitHub Desktop，一路next。
 选择“Clone a repository from the Internet…”，将你的私有仓库克隆到本地。
-在这个本地仓库打开powershell（shift+右键）
-执行hugo new site &lt;myWebSite> --force，可以替换成你的私有仓库名称，构建hugo框架，如下图
-0x05为博客添加一个主题 比如我是用的Papermod主题
-主页贴在这里：https://github.com/adityatelange/hugo-PaperMod
-wiki在这里：https://github.com/adityatelange/hugo-PaperMod/wiki
-Info 当你遇到问题时，应该首先查看wiki 参考wiki，使用git工具来管理。
-在myWebSite文件夹右键打开git bash，使用git submodule add --depth=1 https://github.com/adityatelange/hugo-PaperMod.git themes/PaperMod git submodule update --init --recursive # needed when you reclone your repo (submodules may not get cloned automatically)下载
-0x06配置主题 首先，papermod使用yaml配置主题。
-We’ll be using yml/yaml format for all examples down below, I recommend using yml over toml as it is easier to read.
-由于hugo config支持多种配置文件格式
-Hugo uses the hugo.toml, hugo.yaml, or hugo.json (if found in the site root) as the default site configuration file.
-可以先删除默认的hugo.toml，新建config.yaml，之后的配置都会在此更改。
-首先复制一份papermod主题的sample config到config.yaml，之后的改正会以此为基础修修补补。
-https://github.com/adityatelange/hugo-PaperMod/wiki/Installation#sample-configyml
-下面详细讲一下config.yaml中比较重要的内容（格式未经过严格排版，谨慎复制，yaml语法对制表符、空格要求严格）
-title: ExampleSite &lt;博客的名字> paginate: 5 &lt;每个页面显示的博文数量> params: title: ExampleSite &lt;博客的标题> description: "ExampleSite description" author: Me &lt;显示的作者名> showtoc: true tocopen: true &lt;设置是否显示TOC栏> label: text: "Home" &lt;左上角> profileMode: buttons: &lt;页面右上角按键的名称> - name: Posts url: posts - name: Tags url: tags homeInfoParams: Title: "Hi there \U0001F44B" &lt;主页面上的标题栏内容> Content: Welcome to my blog &lt;主页面上的简介栏内容> socialIcons: &lt;name:papermod wiki-Icons中给出的图标名，与图标关联，不可更改.自定义图标请用“-”代替。title：显示的图标名。url：地址，包括在线图标和本地图标> - name: twitter &lt;这是一个在线图标示例> title: 推特 url: "https://twitter.com/" - name: - &lt;这是一个本地图标示例> title: 本地图标 url: "/icons/&lt;本地图标>" &lt;本地图标保存在/static/icons文件夹下> - name: email &lt;这是一个邮件图标示例，此行不可更改> title: 電郵 url: "mailto:&lt;你的电子邮箱地址>" 0x07新建博文 在文件夹执行hugo new posts/hello.md，生成一篇hello.md文章，编辑内容。
-使用hugo server -D查看修改是否生效。用ctrl+c结束调试。
-将hello.md中第四行draft改为true，正式发布
-0x08发布网站 登录 Github，点击个人头像，选择 Settings，进入个人设置页面。
-选择Developer settings - Personal access tokens - Tokens(classic)
-选择Generate new token(classic)，勾选workflow。
-生成令牌，妥善保存ghp_开头的令牌内容
-0x09 为私有仓库建立Action secrets 进入私有仓库，进入Settings - Secrets and variables - Actions页面
-点击New repository secret添加刚刚保存的token
-0x0A 创建Actions 在本地 myWebSite 文件夹创建 &lt;.github\workflows\main.yml> 文件，输入以下内容：
-name: GitHub Pages on: push: branches: - main # 博客根目录的默认分支，这里是main，有时也是master pull_request: jobs: deploy: runs-on: ubuntu-20.04 concurrency: group: ${{ github.workflow }}-${{ github.ref }} steps: - uses: actions/checkout@v2 with: submodules: true fetch-depth: 0 - name: Setup Hugo uses: peaceiris/actions-hugo@v2 with: hugo-version: '0.91.2' # 填写你的hugo版本，可用hugo version查看 extended: true # 如果你使用的不是extended版本的hugo，将true改为false - name: Build run: hugo --minify - name: Deploy uses: peaceiris/actions-gh-pages@v3 if: ${{ github.ref == 'refs/heads/main' }} # 注意填写main或者master with: personal_token: ${{ secrets.MY_PAT}} # 如果secret取了其他名称，将MY_PAT替换掉 external_repository: simumis/simumis.github.io # 填写远程仓库，不一定是这个格式，按照自己的情况写 publish_dir: ./public #cname: www.example.com # 填写你的自定义域名。如果没有用自定义域名，注释掉这行 0x0B发布网站 打开 Github Desktop 软件，点击 Commit to main 按钮提交所有修改（需要填写更新总结），然后点击 Push origin 按钮将修改内容推送到 Github 网站的 myWebSite 仓库，随后触发 Github Actions 自动执行编译、发布功能。
-在github的&lt;yourname.github.io>仓库打开Settings-Pages页面，将Branch改为gh-pages
-现在，打开你自己的博客看看吧！！ Admonition功能（仿LoveIt） 概述 Admonition是一种基于markdown格式，需要博客支持的提示框型文字。
-PaeperMod主题并不自带Admonition功能，于是需要从LoveIt主题移植。
-首先看了这篇文章
-https://mc-lsk888-blog.vercel.app/post/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E7%A7%BB%E6%A4%8Dadmonition%E5%88%B0papermod/
-博文给出了admonition的移植方法，但我自己用文中方法和代码尝试并不成功。
-实现过程 主要使用了https://github.com/YazidLee/hugo-backup的repo。这个库已经将admonition功能移植好了，并附加了其他功能（本文并不介绍）
-首先将该库clone下来。 在本地仓库新建\assets\css\extended; \layouts\partials; \layouts\shortcodes三个文件夹，将库中以上三个文件夹中admonition.css; details.css； fa-all.css；extend_footer.html; admonition.html分别复制到自己的本地库。 将库中\static\font文件夹复制到本地库 修改&lt;extend_footer.html>的内容，只保留{{- /* admonition toggle */}}一段，删除其他内容。 使用hugo server -D查看修改是否生效。 admonition语法见此：https://hdsbook.github.io/0-loveit-admonition-note/
-Info 注意：使用admonition是不要在命令前留有空格 设置全局字体 将.otf/.ttf字体放入/static/fonts文件夹中
-新建/assets/css/extended/fonts.css字体描述文件
-编辑该文件：
-@font-face { /*引用字体*/ font-family: "字体名"; src: url("/fonts/本地字体.otf"); } body /*设置全局字体*/ { font-family: "字体名"; } 同时，也可以分别设置正文字体
-post-content{ /*对应的class名称或id名称*/ font-family: "中文字体","西文字体"; } 使用hugo server -D查看修改是否生效。
-如何在博文中引用图片 两种选择
-在线图床：将图片上传到图床，生成绝对链接，再粘贴到markdown file中，但是要钱 烂了（ 本地引用：将图片给放在\static\img文件夹中，我们将着重讲述这个办法。 将图片放入\static\img文件夹。
-再markdown file中严格按照![title（可省略）](/img/&lt;your file>)的格式引用
-使用hugo server -D查看修改是否生效。
-在Hugo框架的博客中渲染附加的Markdown语法 你可能会发现，使用shift+enter的换行在博文里并不能被正确渲染为换行符。再比如，行内删除线有时也不能被正确渲染。这是因为Hugo框架只配置了最基础的Markdown语法。为此，我们需要添加附加扩展
-https://www.gohugo.org/doc/overview/configuration/
-旧版的Hugo框架使用了Blackfriday作为渲染引擎，如上所述，在此不详述。之前以为是blackfriday配置了半天都不成功气死我辣
-https://gohugo.io/getting-started/configuration-markup/
-新版的Hugo框架使用了Goldmark作为渲染引擎，如上所述。直接将Goldmark yaml复制到本地库的config.yaml，并将hardWraps改为true
-extensions每项的具体作用可以在此查看https://github.com/yuin/goldmark
-血泪教训 类似测试 删除线？ 这样末尾带有符号的删除线，记得在外部留一个空格，否则无法渲染 多个空格 根据Markdown的语法规则，多个空格将会被忽略，你可以用&amp;nbsp;来表示空格 基于AES-GCM算法的博文加密模块 本功能基于hugoArticleEncryptor实现。演示示例请在测试页寻找
-hugoArticleEncryptor是Hugo Encryptor的 go 版本。Hugo Encryptor基于python编写，但其依赖项安装比较复杂，故采用hugoArticleEncryptor。
-hugoArticleEncryptor的参考文档在此，这里做简要说明：
-https://github.com/hotjuicew/hugoArticleEncryptor/blob/master/README-zh_CN.md
-首先需要明确的是，加密模块的效果无法再本地查看，使用hugo server命令不一定能完全还原网页效果。所以请上传到仓库编译后在博客网页查看。
-步骤 下载发行版hugoArticleEncryptor-windows-amd64.exe到本地仓库。如果你运行它，会发现它会自动生成一个在.\static\js文件夹下的AESDecrypt.js文件和在.\layouts\shortcodes文件夹下的secret.html短代码文件。这两个文件就是实现博文加密的全部了。
-在任一博文需要加密的地方用
-...</p></div><footer class=entry-footer><span title='2023-11-28 20:48:00 +0800 +0800'>November 28, 2023</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;581 words&nbsp;·&nbsp;KarmenArmis</footer><a class=entry-link aria-label="post link to How_To_Build_a_BLOG! " href=https://karmenarmis.github.io/posts/how_to_build_a_blog/></a></article><article class=post-entry><header class=entry-header><h2>更新驻记&测试页</h2></header><div class=entry-content><p>訓詞 This is a WARNING admonition test. //This website is now under construction. //本網站現正建設中。 //这个网站正在施工中。 （好！施工队选择开摆！）
+在这个本地仓库打开powershell（shift+右键）...</p></div><footer class=entry-footer><span title='2023-11-28 20:48:00 +0800 +0800'>November 28, 2023</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;570 words&nbsp;·&nbsp;KarmenArmis</footer><a class=entry-link aria-label="post link to How_To_Build_a_BLOG! " href=https://karmenarmis.github.io/posts/how_to_build_a_blog/></a></article><article class=post-entry><header class=entry-header><h2>更新驻记&测试页</h2></header><div class=entry-content><p>訓詞 This is a WARNING admonition test. //This website is now under construction. //本網站現正建設中。 //这个网站正在施工中。 （好！施工队选择开摆！）
 测试行内删除线 删除线？ 测试行内删除线
 shift+enter换行测试
 本地图片引用测试
