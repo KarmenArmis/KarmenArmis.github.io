@@ -10,7 +10,7 @@
       <link>https://karmenarmis.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
+    <language>zh-tw</language>
     <lastBuildDate>Tue, 28 Nov 2023 20:48:00 +0800</lastBuildDate><atom:link href="https://karmenarmis.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How_To_Build_a_BLOG! </title>
@@ -73,6 +73,7 @@ shift+enter换行测试&lt;/p&gt;
 &lt;p&gt;todo-list&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 整合&lt;a href=&#34;https://www.usememos.com/&#34;&gt;memos&lt;/a&gt;笔记服务&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 整理博文，分别建立文件夹&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;p&gt;&lt;strong&gt;Encryption_test&lt;/strong&gt;&lt;/p&gt;
