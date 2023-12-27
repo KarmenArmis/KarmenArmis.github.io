@@ -2,10 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://karmenarmis.github.io/casual/</loc>
-    <lastmod>2023-12-19T01:15:23+08:00</lastmod>
+    <loc>https://karmenarmis.github.io/posts/</loc>
+    <lastmod>2023-12-27T19:46:41+08:00</lastmod>
+  </url><url>
+    <loc>https://karmenarmis.github.io/posts/%E5%87%A0%E4%B8%AA%E7%BD%91%E7%AB%99%E7%9A%84%E5%A4%87%E4%BB%BD%E6%96%B9%E6%B3%95/</loc>
+    <lastmod>2023-12-27T19:46:41+08:00</lastmod>
   </url><url>
     <loc>https://karmenarmis.github.io/</loc>
+    <lastmod>2023-12-27T19:46:41+08:00</lastmod>
+  </url><url>
+    <loc>https://karmenarmis.github.io/casual/</loc>
     <lastmod>2023-12-19T01:15:23+08:00</lastmod>
   </url><url>
     <loc>https://karmenarmis.github.io/casual/%E6%95%AC%E5%91%8A/</loc>
@@ -18,9 +24,6 @@
     <lastmod>2023-12-11T16:45:03+08:00</lastmod>
   </url><url>
     <loc>https://karmenarmis.github.io/posts/how_to_build_a_blog/</loc>
-    <lastmod>2023-11-28T20:48:00+08:00</lastmod>
-  </url><url>
-    <loc>https://karmenarmis.github.io/posts/</loc>
     <lastmod>2023-11-28T20:48:00+08:00</lastmod>
   </url><url>
     <loc>https://karmenarmis.github.io/posts/%E6%9B%B4%E6%96%B0%E9%A9%BB%E8%AE%B0%E6%B5%8B%E8%AF%95%E9%A1%B5/</loc>
